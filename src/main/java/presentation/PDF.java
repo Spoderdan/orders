@@ -144,10 +144,10 @@ public class PDF {
      * @param ProductBLL business logic object to get the data from the product table
      * @param OrderBLL business logic object to get the data from the order table
      */
-    public void generateReport(String table, ClientBLL ClientBLL, ProductBLL ProductBLL, OrderBLL OrderBLL){
+    public void generateReport(String table, String it, ClientBLL ClientBLL, ProductBLL ProductBLL, OrderBLL OrderBLL){
         Document document = new Document();
         try{
-            PdfWriter.getInstance(document, new FileOutputStream(table + "_report.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream(table + it + "_report.pdf"));
         } catch (FileNotFoundException | DocumentException e) {
             e.printStackTrace();
         }

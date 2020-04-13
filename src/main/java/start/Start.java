@@ -29,6 +29,7 @@ public class Start {
         Map<String[], String[]> commands;
         commands = parser.processFile(args[0]);
 
+        int i = 0;
         for(Map.Entry<String[], String[]> entry : commands.entrySet())
             switch (entry.getKey()[0]) {
                 // INSERT
@@ -95,7 +96,8 @@ public class Start {
                     break;
                 // REPORT
                 default:
-                    pdf.generateReport(entry.getKey()[1], ClientBLL, ProductBLL, OrderBLL);
+                    pdf.generateReport(entry.getKey()[1], Integer.toString(i), ClientBLL, ProductBLL, OrderBLL);
+                    i++;
                     break;
             }
 
